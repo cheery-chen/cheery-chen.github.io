@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>建站历史回顾</title>
+    <url>/2022/09/04/%E5%BB%BA%E7%AB%99%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE/</url>
+    <content><![CDATA[<h2 id="建站历史"><a href="#建站历史" class="headerlink" title="建站历史"></a>建站历史</h2><p>2021年2月:</p>
+<p>第一次使用Hexo进行建站，陆续花了3个晚上摸索前端基础，并找出了蒙尘了3年之久的树莓派3B套件（看到大佬稚晖君自己用小电视建站才想起来）。通过花生壳内网穿透，购买自己的域名，浏览器输入cheerychen.com进行连接，加载出Hello World那刻，心花路放，傻笑了好久。</p>
+<span id="more"></span>
+
+<hr>
+<p>2021年2月–2022年9月:</p>
+<p>从MediaTek辞职，成功上岸稚晖君的母校读博。</p>
+<hr>
+<p>2022年9月</p>
+<p>博士开学第一周，倒了一年半的站，重新拉起来，记录在重新读书期间的学习过程，技术笔记等。</p>
+<blockquote>
+<p>建站容易，维护不易，一定坚持维护！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2022/09/03/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -18,30 +42,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>建站历史回顾</title>
-    <url>/2022/09/04/%E5%BB%BA%E7%AB%99%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE/</url>
-    <content><![CDATA[<h2 id="建站历史"><a href="#建站历史" class="headerlink" title="建站历史"></a>建站历史</h2><p>2021年2月:</p>
-<p>第一次使用Hexo进行建站，陆续花了3个晚上摸索前端基础，并找出了蒙尘了3年之久的树莓派3B套件（看到大佬稚晖君自己用小电视建站才想起来）。通过花生壳内网穿透，购买自己的域名，浏览器输入cheerychen.com进行连接，加载出Hello World那刻，心花路放，傻笑了好久。</p>
-<span id="more"></span>
-
-<hr>
-<p>2021年2月–2022年9月:</p>
-<p>从MediaTek辞职，成功上岸稚晖君的母校读博。</p>
-<hr>
-<p>2022年9月</p>
-<p>博士开学第一周，倒了一年半的站，重新拉起来，记录在重新读书期间的学习过程，技术笔记等。</p>
-<blockquote>
-<p>建站容易，维护不易，一定坚持维护！</p>
-</blockquote>
 ]]></content>
       <categories>
         <category>随笔</category>
