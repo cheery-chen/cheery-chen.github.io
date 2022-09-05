@@ -29,7 +29,8 @@
   <entry>
     <title>建站历史回顾</title>
     <url>/2022/09/04/%E5%BB%BA%E7%AB%99%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE/</url>
-    <content><![CDATA[<h2 id="建站历史"><a href="#建站历史" class="headerlink" title="建站历史"></a>建站历史</h2><p>2021年2月:</p>
+    <content><![CDATA[<h2 id="建站历史"><a href="#建站历史" class="headerlink" title="建站历史"></a>建站历史</h2><p><img data-src="/2022/09/04/%E5%BB%BA%E7%AB%99%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE/history.png"></p>
+<p>2021年2月:</p>
 <p>第一次使用Hexo进行建站，陆续花了3个晚上摸索前端基础，并找出了蒙尘了3年之久的树莓派3B套件（看到大佬稚晖君自己用小电视建站才想起来）。通过花生壳内网穿透，购买自己的域名，浏览器输入cheerychen.com进行连接，加载出Hello World那刻，心花路放，傻笑了好久。</p>
 <span id="more"></span>
 
@@ -49,5 +50,10 @@
       <tags>
         <tag>网站</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2022/09/05/test/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
