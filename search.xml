@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hexo建站后注意事项</title>
+    <url>/2022/09/05/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如何使用Hexo建站，官网也有很多教程，这里不再赘述。详见-&gt; <a href="https://hexo.io/zh-cn/">Hexo官方网站</a></p>
+<p>里面关于如何建站的内容很清晰，如何更换主题，也有详尽的描述。</p>
+<h2 id="Hexo发布博客注意事项-amp-问题汇总"><a href="#Hexo发布博客注意事项-amp-问题汇总" class="headerlink" title="Hexo发布博客注意事项&amp;问题汇总"></a>Hexo发布博客注意事项&amp;问题汇总</h2><span id="more"></span>
+
+<ol>
+<li><p>当把自己的博客挂载到了cheery-chen.github.io后，又在阿里云上，够买了域名cheerychen.com绑定到cheery-chen.github.io</p>
+<p>登录GitHub，进入之前创建的仓库，点击settings，找到Page页面 设置Custom domain，输入你的域名cheerychen.com</p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/custom_domain.png"></p>
+<p>然后还需要在Hexo的Source文件夹下新建一个CNAME文件，里面填入cheerychen.com， 这样才不会每次hexo deploy之后，github上的custom domain地址被冲掉。</p>
+</li>
+</ol>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/CNAME.png"></p>
+<p>CNAME中的内容如下：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">cheerychen.com</span><br><span class="line">www.cheerychen.com</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/cheerychen.png"></p>
+<ol start="2">
+<li><p>每次预览和上传博客，都需要输入hexo clean, hexo g, hexo s, hexo d</p>
+<p>这样不免效率太低，只需要写一个非常简单的shell 脚本帮忙干这个工作</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>个人建站技巧</category>
+      </categories>
+      <tags>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2022/09/03/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
