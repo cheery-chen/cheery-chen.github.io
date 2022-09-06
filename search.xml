@@ -5,33 +5,81 @@
     <url>/2022/09/05/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如何使用Hexo建站，官网也有很多教程，这里不再赘述。详见-&gt; <a href="https://hexo.io/zh-cn/">Hexo官方网站</a></p>
 <p>里面关于如何建站的内容很清晰，如何更换主题，也有详尽的描述。</p>
+<p>但关于一些博客发布过程中的常见问题，却缺少解决方法。</p>
 <h2 id="Hexo发布博客注意事项-amp-问题汇总"><a href="#Hexo发布博客注意事项-amp-问题汇总" class="headerlink" title="Hexo发布博客注意事项&amp;问题汇总"></a>Hexo发布博客注意事项&amp;问题汇总</h2><span id="more"></span>
 
+<h3 id="1-快速保存Hexo本地博客源码"><a href="#1-快速保存Hexo本地博客源码" class="headerlink" title="1. 快速保存Hexo本地博客源码"></a>1. 快速保存Hexo本地博客源码</h3><p>本地博客的内容都是通过markdown或者其它文件格式保存在本地。而部署的时候，Hexo是帮忙把博客内容转化为了html然后再发布。</p>
+<p>源码内容在： <code>C:\Users\cheery\OneDrive\04-Blog\cheery-chen</code></p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%E6%BA%90%E7%A0%81.png" alt="image-20220906100842868"></p>
+<p>部署内容在：<code>C:\Users\cheery\OneDrive\04-Blog\cheery-chen\.deploy_git </code></p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%E9%83%A8%E7%BD%B2.png" alt="image-20220906100920307"></p>
+<p>部署的时候，只会把<code>.deploy_git</code>中的内容发布，而源码内容还是保存在本地。</p>
+<p>因此对源码内容的保存，这里有两个建议：</p>
 <ol>
-<li><p>当把自己的博客挂载到了cheery-chen.github.io后，又在阿里云上，够买了域名cheerychen.com绑定到cheery-chen.github.io</p>
+<li><p>把源码内容保存到自己github.io的分支中。</p>
+<p>优点：全平台同步，哪里都可以download下来然后写博客。</p>
+<p>缺点：操作稍复杂，如果不设置为私有库，谁都可以看到。</p>
+</li>
+<li><p>直接copy整个源码内容到本地的OneDrive文件夹中。（我喜欢这个）</p>
+<p>优点：操作简单，只有自己可见源码，windows平台间同步。</p>
+<p>缺点：只有windows平台同步，linux等平台支持不好。</p>
+</li>
+</ol>
+<h3 id="2-快速预览和部署Hexo博客设置"><a href="#2-快速预览和部署Hexo博客设置" class="headerlink" title="2. 快速预览和部署Hexo博客设置"></a>2. 快速预览和部署Hexo博客设置</h3><p>每次预览和上传博客，都需要输入hexo clean, hexo g, hexo s, hexo d</p>
+<p>这样不免效率太低，写一个非常简单的shell 脚本，只用一个命令就可以完成网站预览和部署。</p>
+<p>首先进入到自己的hexo目录，创建一个shell脚本：</p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/shell%E8%84%9A%E6%9C%AC.png" alt="image-20220906094443768"></p>
+<p>然后在blog.sh中，填入如下内容:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">pre_blog()</span><br><span class="line">&#123;</span><br><span class="line">	hexo clean</span><br><span class="line">	hexo g</span><br><span class="line">	hexo s</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">deploy_blog()</span><br><span class="line">&#123;</span><br><span class="line">	hexo clean</span><br><span class="line">	hexo g</span><br><span class="line">	hexo deploy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if [[ $1 == &quot;s&quot; ]]</span><br><span class="line">then</span><br><span class="line">	echo &quot;start preview blog!!!&quot;</span><br><span class="line">	pre_blog</span><br><span class="line">elif [[ $1 == &quot;d&quot; ]]</span><br><span class="line">then</span><br><span class="line">	echo &quot;deploy blog!!!&quot;</span><br><span class="line">	deploy_blog</span><br><span class="line">fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在自己的hexo目录下启动git bash：</p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/git_bash.png" alt="image-20220906094851236"></p>
+<p>使用<code>./blog.sh s</code>  会自动<code>hexo clean&amp;generate&amp;server</code>, 然后在本地输入<a href="http://localhost:4000/">localhost:4000</a>进行预览自己的网页。如果看到没有问题后，<code>ctrl+c</code>停止当前预览。</p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/preview.png" alt="image-20220906095648299"></p>
+<p>使用<code>./blog.sh d</code>进行自动部署（前提是配置好_config.yml中的deploy设置），会自动<code>hexo clean&amp;generate&amp;deploy</code> ，完成github的部署</p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/deploy.png" alt="image-20220906095818940"></p>
+<p>个人<code>_config.yml</code>中的deploy配置，通过github进行挂载：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="comment">#repo: https://github.com/cheery-chen/cheery-chen.github.io.git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/自己的用户名/自己的用户名.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-如何将自己买的域名绑定到github-io上"><a href="#3-如何将自己买的域名绑定到github-io上" class="headerlink" title="3. 如何将自己买的域名绑定到github.io上"></a>3. 如何将自己买的域名绑定到github.io上</h3><p>当把自己的博客挂载到了cheery-chen.github.io后，又在阿里云上，够买了域名cheerychen.com绑定到cheery-chen.github.io</p>
 <p>登录GitHub，进入之前创建的仓库，点击settings，找到Page页面 设置Custom domain，输入你的域名cheerychen.com</p>
 <p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/custom_domain.png"></p>
 <p>然后还需要在Hexo的Source文件夹下新建一个CNAME文件，里面填入cheerychen.com， 这样才不会每次hexo deploy之后，github上的custom domain地址被冲掉。</p>
-</li>
-</ol>
 <p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/CNAME.png"></p>
 <p>CNAME中的内容如下：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cheerychen.com</span><br><span class="line">www.cheerychen.com</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/cheerychen.png"></p>
-<ol start="2">
-<li><p>每次预览和上传博客，都需要输入hexo clean, hexo g, hexo s, hexo d</p>
-<p>这样不免效率太低，写一个非常简单的shell 脚本帮忙干这个工作。</p>
-<p>首先进入到自己的hexo目录，创建一个shell脚本：</p>
-</li>
-</ol>
-<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/shell%E8%84%9A%E6%9C%AC" alt="image-20220906094443768"></p>
-<p>然后在blog.sh中，填入如下内容:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">pre_blog()</span><br><span class="line">&#123;</span><br><span class="line">	hexo clean</span><br><span class="line">	hexo g</span><br><span class="line">	hexo s</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">deploy_blog()</span><br><span class="line">&#123;</span><br><span class="line">	hexo clean</span><br><span class="line">	hexo g</span><br><span class="line">	hexo deploy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if [[ $1 == &quot;s&quot; ]]</span><br><span class="line">then</span><br><span class="line">	echo &quot;start preview blog!!!&quot;</span><br><span class="line">	pre_blog</span><br><span class="line">elif [[ $1 == &quot;d&quot; ]]</span><br><span class="line">then</span><br><span class="line">	echo &quot;deploy blog!!!&quot;</span><br><span class="line">	deploy_blog</span><br><span class="line">fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <categories>
         <category>个人建站技巧</category>
+      </categories>
+      <tags>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>建站历史回顾</title>
+    <url>/2022/09/04/%E5%BB%BA%E7%AB%99%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE/</url>
+    <content><![CDATA[<h2 id="建站历史"><a href="#建站历史" class="headerlink" title="建站历史"></a>建站历史</h2><p><img data-src="/images/%E5%BB%BA%E7%AB%99%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE/history.png"></p>
+<p>2021年2月:</p>
+<p>第一次使用Hexo进行建站，陆续花了3个晚上摸索前端基础，并找出了蒙尘了3年之久的树莓派3B套件（看到大佬稚晖君自己用小电视建站才想起来）。通过花生壳内网穿透，购买自己的域名，浏览器输入cheerychen.com进行连接，加载出Hello World那刻，心花怒放，傻笑了好久。</p>
+<span id="more"></span>
+
+<hr>
+<p>2021年2月–2022年9月:</p>
+<p>从MediaTek辞职，成功上岸稚晖君的母校读博。</p>
+<hr>
+<p>2022年9月</p>
+<p>博士开学第一周，倒了一年半的站，重新拉起来，记录在重新读书期间的学习过程，技术笔记等。</p>
+<blockquote>
+<p>建站容易，维护不易，一定坚持维护！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>随笔</category>
       </categories>
       <tags>
         <tag>网站</tag>
@@ -55,31 +103,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>建站历史回顾</title>
-    <url>/2022/09/04/%E5%BB%BA%E7%AB%99%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE/</url>
-    <content><![CDATA[<h2 id="建站历史"><a href="#建站历史" class="headerlink" title="建站历史"></a>建站历史</h2><p><img data-src="/images/%E5%BB%BA%E7%AB%99%E5%8E%86%E5%8F%B2%E5%9B%9E%E9%A1%BE/history.png"></p>
-<p>2021年2月:</p>
-<p>第一次使用Hexo进行建站，陆续花了3个晚上摸索前端基础，并找出了蒙尘了3年之久的树莓派3B套件（看到大佬稚晖君自己用小电视建站才想起来）。通过花生壳内网穿透，购买自己的域名，浏览器输入cheerychen.com进行连接，加载出Hello World那刻，心花怒放，傻笑了好久。</p>
-<span id="more"></span>
-
-<hr>
-<p>2021年2月–2022年9月:</p>
-<p>从MediaTek辞职，成功上岸稚晖君的母校读博。</p>
-<hr>
-<p>2022年9月</p>
-<p>博士开学第一周，倒了一年半的站，重新拉起来，记录在重新读书期间的学习过程，技术笔记等。</p>
-<blockquote>
-<p>建站容易，维护不易，一定坚持维护！</p>
-</blockquote>
 ]]></content>
       <categories>
         <category>随笔</category>
