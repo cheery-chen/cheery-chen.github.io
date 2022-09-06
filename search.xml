@@ -16,14 +16,19 @@
 </ol>
 <p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/CNAME.png"></p>
 <p>CNAME中的内容如下：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">cheerychen.com</span><br><span class="line">www.cheerychen.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cheerychen.com</span><br><span class="line">www.cheerychen.com</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/cheerychen.png"></p>
 <ol start="2">
 <li><p>每次预览和上传博客，都需要输入hexo clean, hexo g, hexo s, hexo d</p>
-<p>这样不免效率太低，只需要写一个非常简单的shell 脚本帮忙干这个工作</p>
+<p>这样不免效率太低，写一个非常简单的shell 脚本帮忙干这个工作。</p>
+<p>首先进入到自己的hexo目录，创建一个shell脚本：</p>
 </li>
 </ol>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/shell%E8%84%9A%E6%9C%AC" alt="image-20220906094443768"></p>
+<p>然后在blog.sh中，填入如下内容:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">pre_blog()</span><br><span class="line">&#123;</span><br><span class="line">	hexo clean</span><br><span class="line">	hexo g</span><br><span class="line">	hexo s</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">deploy_blog()</span><br><span class="line">&#123;</span><br><span class="line">	hexo clean</span><br><span class="line">	hexo g</span><br><span class="line">	hexo deploy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if [[ $1 == &quot;s&quot; ]]</span><br><span class="line">then</span><br><span class="line">	echo &quot;start preview blog!!!&quot;</span><br><span class="line">	pre_blog</span><br><span class="line">elif [[ $1 == &quot;d&quot; ]]</span><br><span class="line">then</span><br><span class="line">	echo &quot;deploy blog!!!&quot;</span><br><span class="line">	deploy_blog</span><br><span class="line">fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>个人建站技巧</category>
