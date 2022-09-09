@@ -38,7 +38,7 @@
 <meta property="og:image" content="http://example.com/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/CNAME.png">
 <meta property="og:image" content="http://example.com/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/cheerychen.png">
 <meta property="article:published_time" content="2022-09-05T13:29:59.000Z">
-<meta property="article:modified_time" content="2022-09-06T02:18:01.579Z">
+<meta property="article:modified_time" content="2022-09-09T11:32:28.398Z">
 <meta property="article:author" content="Cheery Chen">
 <meta property="article:tag" content="网站">
 <meta name="twitter:card" content="summary">
@@ -265,7 +265,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-06 10:18:01" itemprop="dateModified" datetime="2022-09-06T10:18:01+08:00">2022-09-06</time>
+      <time title="修改时间：2022-09-09 19:32:28" itemprop="dateModified" datetime="2022-09-09T19:32:28+08:00">2022-09-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -301,9 +301,9 @@
 
 <h3 id="1-快速保存Hexo本地博客源码"><a href="#1-快速保存Hexo本地博客源码" class="headerlink" title="1. 快速保存Hexo本地博客源码"></a>1. 快速保存Hexo本地博客源码</h3><p>本地博客的内容都是通过markdown或者其它文件格式保存在本地。而部署的时候，Hexo是帮忙把博客内容转化为了html然后再发布。</p>
 <p>源码内容在： <code>C:\Users\cheery\OneDrive\04-Blog\cheery-chen</code></p>
-<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%E6%BA%90%E7%A0%81.png" alt="image-20220906100842868"></p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%E6%BA%90%E7%A0%81.png"></p>
 <p>部署内容在：<code>C:\Users\cheery\OneDrive\04-Blog\cheery-chen\.deploy_git </code></p>
-<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%E9%83%A8%E7%BD%B2.png" alt="image-20220906100920307"></p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/%E9%83%A8%E7%BD%B2.png"></p>
 <p>部署的时候，只会把<code>.deploy_git</code>中的内容发布，而源码内容还是保存在本地。</p>
 <p>因此对源码内容的保存，这里有两个建议：</p>
 <ol>
@@ -319,16 +319,16 @@
 <h3 id="2-快速预览和部署Hexo博客设置"><a href="#2-快速预览和部署Hexo博客设置" class="headerlink" title="2. 快速预览和部署Hexo博客设置"></a>2. 快速预览和部署Hexo博客设置</h3><p>每次预览和上传博客，都需要输入hexo clean, hexo g, hexo s, hexo d</p>
 <p>这样不免效率太低，写一个非常简单的shell 脚本，只用一个命令就可以完成网站预览和部署。</p>
 <p>首先进入到自己的hexo目录，创建一个shell脚本：</p>
-<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/shell%E8%84%9A%E6%9C%AC.png" alt="image-20220906094443768"></p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/shell%E8%84%9A%E6%9C%AC.png"></p>
 <p>然后在blog.sh中，填入如下内容:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">pre_blog()</span><br><span class="line">&#123;</span><br><span class="line">	hexo clean</span><br><span class="line">	hexo g</span><br><span class="line">	hexo s</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">deploy_blog()</span><br><span class="line">&#123;</span><br><span class="line">	hexo clean</span><br><span class="line">	hexo g</span><br><span class="line">	hexo deploy</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if [[ $1 == &quot;s&quot; ]]</span><br><span class="line">then</span><br><span class="line">	echo &quot;start preview blog!!!&quot;</span><br><span class="line">	pre_blog</span><br><span class="line">elif [[ $1 == &quot;d&quot; ]]</span><br><span class="line">then</span><br><span class="line">	echo &quot;deploy blog!!!&quot;</span><br><span class="line">	deploy_blog</span><br><span class="line">fi</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>在自己的hexo目录下启动git bash：</p>
-<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/git_bash.png" alt="image-20220906094851236"></p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/git_bash.png"></p>
 <p>使用<code>./blog.sh s</code>  会自动<code>hexo clean&amp;generate&amp;server</code>, 然后在本地输入<a target="_blank" rel="noopener" href="http://localhost:4000/">localhost:4000</a>进行预览自己的网页。如果看到没有问题后，<code>ctrl+c</code>停止当前预览。</p>
-<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/preview.png" alt="image-20220906095648299"></p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/preview.png"></p>
 <p>使用<code>./blog.sh d</code>进行自动部署（前提是配置好_config.yml中的deploy设置），会自动<code>hexo clean&amp;generate&amp;deploy</code> ，完成github的部署</p>
-<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/deploy.png" alt="image-20220906095818940"></p>
+<p><img data-src="/images/Hexo%E5%BB%BA%E7%AB%99%E5%90%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/deploy.png"></p>
 <p>个人<code>_config.yml</code>中的deploy配置，通过github进行挂载：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="comment">#repo: https://github.com/cheery-chen/cheery-chen.github.io.git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/自己的用户名/自己的用户名.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 
